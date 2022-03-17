@@ -21,6 +21,10 @@ async def on_message(message):
 
     if message.content == 'pls':
       role = get(message.guild.roles, name='beggar')
+      await message.author.add_roles(role)\
+
+    if message.content == 'Pls':
+      role = get(message.guild.roles, name='beggar')
       await message.author.add_roles(role)
 
 client.run(os.getenv(".env"))
