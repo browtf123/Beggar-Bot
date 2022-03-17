@@ -14,9 +14,11 @@ async def on_message(message):
     if message.content == 'please':
       role = get(message.guild.roles, name='beggar')
       await message.author.add_roles(role)
+
     if message.content == 'Please':
       role = get(message.guild.roles, name='beggar')
       await message.author.add_roles(role)
+
     if message.content == 'pls':
       role = get(message.guild.roles, name='beggar')
       await message.author.add_roles(role)
