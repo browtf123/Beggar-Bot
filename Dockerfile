@@ -9,13 +9,12 @@ WORKDIR /home/worker
 ENV PATH="/home/worker/.local/bin:/home/worker/.poetry/bin:${PATH}"
 
 RUN pip install --upgrade pip
-#RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
 RUN pip install poetry
 
 COPY --chown=worker:worker poetry.lock .
 COPY --chown=worker:worker pyproject.toml .
 COPY --chown=worker:worker ./src/ ./src/
 
-#RUN poetry install
+RUN poetry install
 
 ENTRYPOINT [ "/bin/bash" ]

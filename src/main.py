@@ -1,3 +1,5 @@
+print("got in here?!")
+
 import discord
 import os
 from discord.utils import get
