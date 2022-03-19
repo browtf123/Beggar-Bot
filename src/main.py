@@ -1,7 +1,5 @@
-print("got in here?!")
-
 import discord
-import os
+import os, json
 from discord.utils import get
 
 
@@ -23,11 +21,22 @@ async def on_message(message):
 
     if message.content == 'pls':
       role = get(message.guild.roles, name='beggar')
-      await message.author.add_roles(role)\
+      await message.author.add_roles(role)
 
     if message.content == 'Pls':
       role = get(message.guild.roles, name='beggar')
       await message.author.add_roles(role)
 
-client.run(os.getenv(".env"))
-my_secret = os.environ[".env"]
+    if message.content.lower().contains("hi bot"):
+      await message.channel.send('Hello human!')
+
+with open(".env", encoding = 'utf-8') as f:
+  try:
+    env = json.loads(f.read())
+    token = env["token"]
+    print("Using token from env")
+  except Exception as e:
+    print("Failed parse env file, make sure you have a .env with valid json.")
+    print("Exception:",e)
+
+client.run(token)
