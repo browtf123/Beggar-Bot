@@ -27,8 +27,16 @@ async def on_message(message):
       role = get(message.guild.roles, name='beggar')
       await message.author.add_roles(role)
 
-    if message.content.lower().contains("hi bot"):
-      await message.channel.send('Hello human!')
+    if "bot" in message.content.lower():
+      if "hi bot" in message.content.lower():
+        await message.channel.send('Hello human!')
+
+      if "how are you" in message.content.lower():
+        await message.channel.send('Hello human!')
+
+      if "what are you" in message.content.lower():
+        await message.channel.send("Maybe I'll go to the movies, or kill all humans")
+
 
 with open(".env", encoding = 'utf-8') as f:
   try:
