@@ -1,0 +1,1 @@
+docker build --label beggerbot -t beggerbot:latest .
